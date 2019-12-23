@@ -1,0 +1,21 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1alpha1
+kind: Elasticsearch
+metadata:
+  name: {{ .Values.elasticsearchVariable.clusterName }}
+spec:
+  version: {{ .Values.elasticsearchVariable.elasticsearchVersion }}
+  nodes:
+  - nodeCount: {{ .Values.elasticsearchVariable.elasticsearchNodeCount }}
+    config:
+      node.master: true
+      node.data: true
+      node.ingest: true
+    volumeClaimTemplates:
+    - metadata:
+        name: {{ .Values.elasticsearchVariable.elasticsearchVolume }} # note: elasticsearch-data must be the name of the Elasticsearch volume
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: {{ .Values.elasticsearchVariable.elasticsearchStorageSize }}

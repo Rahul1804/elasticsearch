@@ -1,0 +1,9 @@
+apiVersion: kibana.k8s.elastic.co/v1alpha1
+kind: Kibana
+metadata:
+  name: {{ .Values.kibanaVariable.kibanaName }}
+spec:
+  version: {{ .Values.elasticsearchVariable.elasticsearchVersion }}
+  nodeCount: {{ .Values.kibanaVariable.kibanaNodeCount}}}
+  elasticsearchRef:
+    name: {{ .Values.elasticsearchVariable.clusterName }}

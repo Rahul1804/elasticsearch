@@ -1,0 +1,10 @@
+elasticsearchVariable:
+  clusterName: elasticsearch-staging-cluster
+  elasticsearchVersion: 7.3.0
+  elasticsearchNodeCount: 3
+  elasticsearchVolume: elasticsearch-data
+  elasticsearchStorageSize: 40Gi
+
+kibanaVariable:
+  kibanaName: kibana-staging
+  kibanaNodeCount: 1
